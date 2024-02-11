@@ -1,0 +1,39 @@
+body {
+    background-color: #f3f3f1 !important;
+    height: 100%;
+    /* font-family: Helvetica, Arial, sans-serif !important; */
+    /* font-size: 12px !important; */
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    /* font-family: Helvetica, Arial, sans-serif; */
+    /* font-family: 'Mitr', sans-serif !important; */
+    font-family: 'Prompt', sans-serif !important;
+    /* font-family: Arial, Arial, serif; */
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+}
+
+
+/*
+a:link
+{
+     text-decoration: none !important;
+}
+*/
+
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: black;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
