@@ -99,10 +99,49 @@
 
 
 
-            <div class="col-md-10 p-0 bg-white   "  style="height:500px;" >
-                  
-                  sdgv
-                  <?php //include('site-body.php');?>
+            <div class="col-md-10 p-0 bg-white   p-2 pt-0 "   >
+
+
+
+
+            <?php
+
+              if($_GET["admin_page"] == ""){
+
+                  //include('front-homepage/homepage-java.php');
+
+                }else if($_GET["admin_page"] == "homepage"){
+
+                  include('page-homepage.php');
+
+                }else if($_GET["admin_page"] == "product"){
+
+                  include('page-product.php');
+
+                }else if($_GET["admin_page"] == "transport"){
+
+                  include('page-transport.php');
+
+                }else if($_GET["admin_page"] == "order"){
+
+                  include('page-order.php');
+
+                }else if($_GET["admin_page"] == "setting"){
+
+                  include('page-setting.php');
+
+                }else{
+
+                  //include('homepage.php');
+
+                }
+
+                ?>
+
+
+
+
+                <?php //include('site-body.php');?>
           
             </div>
 
