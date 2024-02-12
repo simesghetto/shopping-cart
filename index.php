@@ -359,15 +359,15 @@
 
 
 
-$product_array = array ( "1" => array ( "prd_id" => "1","prd_img" => "product-img-1.png","prd_name" => "milk",  "prd_price" => "150"),
-                         "2" => array ( "prd_id" => "2","prd_img" => "product-img-2.png","prd_name" => "nut",  "prd_price" => "50"),
-                         "3" => array ( "prd_id" => "3","prd_img" => "product-img-3.png","prd_name" => "oreo",   "prd_price" => "80"),
-                         "4" => array ( "prd_id" => "4","prd_img" => "product-img-4.png","prd_name" => "banana",  "prd_price" => "75"),
-                         "5" => array ( "prd_id" => "5","prd_img" => "product-img-5.png","prd_name" => "cocoa",  "prd_price" => "70"),
-                         "6" => array ( "prd_id" => "6","prd_img" => "product-img-6.png","prd_name" => "coffee",   "prd_price" => "65"),     
-                         "7" => array ( "prd_id" => "7","prd_img" => "product-img-7.png","prd_name" => "matcha",  "prd_price" => "30"),
-                         "8" => array ( "prd_id" => "8","prd_img" => "product-img-8.png","prd_name" => "thaitea",  "prd_price" => "40"),
-                         "9" => array ( "prd_id" => "9","prd_img" => "product-img-9.png","prd_name" => "water",   "prd_price" => "95"), 
+$product_array = array ( array ( "prd_id" => "1","prd_img" => "product-img-1.png","prd_name" => "milk",  "prd_price" => "150"),
+                         array ( "prd_id" => "2","prd_img" => "product-img-2.png","prd_name" => "nut",  "prd_price" => "50"),
+                         array ( "prd_id" => "3","prd_img" => "product-img-3.png","prd_name" => "oreo",   "prd_price" => "80"),
+                         array ( "prd_id" => "4","prd_img" => "product-img-4.png","prd_name" => "banana",  "prd_price" => "75"),
+                         array ( "prd_id" => "5","prd_img" => "product-img-5.png","prd_name" => "cocoa",  "prd_price" => "70"),
+                         array ( "prd_id" => "6","prd_img" => "product-img-6.png","prd_name" => "coffee",   "prd_price" => "65"),     
+                         array ( "prd_id" => "7","prd_img" => "product-img-7.png","prd_name" => "matcha",  "prd_price" => "30"),
+                         array ( "prd_id" => "8","prd_img" => "product-img-8.png","prd_name" => "thaitea",  "prd_price" => "40"),
+                         array ( "prd_id" => "9","prd_img" => "product-img-9.png","prd_name" => "water",   "prd_price" => "95"), 
 
                 );
                            //echo $product_array[$key]["fruits"];
