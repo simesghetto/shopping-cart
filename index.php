@@ -37,7 +37,7 @@
         <div class=" p-2 bg-body-tertiary border rounded-3">
 
                <?php include('site-menu.php');?>
-               
+
         </div>
       </div>
 
@@ -82,8 +82,11 @@ $product_array = array ( array ( "prd_id" => "1","prd_img" => "product-img-1.png
 
                                       <div class="row pb-2 justify-content-between">
                                          <div class="col align-self-center text-start">  <?php echo $product_array[$key]["prd_price"].".-"; ?>  </div>
-                                         <div class="col-auto  text-end"><a href="#" data-name="<?php echo $product_array[$key]["prd_name"]; ?> " 
-                                                                     data-price="<?php echo $product_array[$key]["prd_price"]; ?> " 
+                                         <div class="col-auto  text-end">
+                                          <a href="#" data-id="<?php echo $product_array[$key]["prd_id"]; ?>" 
+                                                      data-img="<?php echo $product_array[$key]["prd_img"]; ?>" 
+                                                      data-name="<?php echo $product_array[$key]["prd_name"]; ?>"                                      
+                                                     data-price="<?php echo $product_array[$key]["prd_price"]; ?>" 
                                           class="add-to-cart btn btn-sm btn-danger text-white "> <i class="bi bi-plus-circle"></i> Add</a> </div>
                                       </div>
 

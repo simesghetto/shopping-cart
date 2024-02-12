@@ -9,8 +9,10 @@ var shoppingCart = (function() {
   cart = [];
   
   // Constructor
-  function Item(name, price, count) {
+  function Item(id,name,img,price,count) {
+    this.id = id;
     this.name = name;
+    this.img = img;
     this.price = price;
     this.count = count;
   }
@@ -35,34 +37,40 @@ var shoppingCart = (function() {
   var obj = {};
   
   // Add to cart
-  obj.addItemToCart = function(name, price, count) {
+  obj.addItemToCart = function(id,name,img,price, count) {
     for(var item in cart) {
-      if(cart[item].name === name) {
+      if(cart[item].id === id) {
         cart[item].count ++;
         saveCart();
         return;
       }
     }
-    var item = new Item(name, price, count);
+    var item = new Item(id,name,img, price, count);
     cart.push(item);
     saveCart();
+
+    console.log(item);
   }
+
   // Set count from item
-  obj.setCountForItem = function(name, count) {
+  obj.setCountForItem = function(id,count) {
     for(var i in cart) {
-      if (cart[i].name === name) {
+      if (cart[i].id === id) {
         cart[i].count = count;
         break;
       }
     }
   };
   // Remove item from cart
-  obj.removeItemFromCart = function(name) {
+  obj.removeItemFromCart = function(id) {
+
       for(var item in cart) {
-        if(cart[item].name === name) {
-          cart[item].count --;
-          if(cart[item].count === 0) {
-            cart.splice(item, 1);
+        if(cart[item].id === id) {
+
+            cart[item].count --;
+            if(cart[item].count === 0) {
+              cart.splice(item, 1);
+
           }
           break;
         }
@@ -71,9 +79,9 @@ var shoppingCart = (function() {
   }
 
   // Remove all items from cart
-  obj.removeItemFromCartAll = function(name) {
+  obj.removeItemFromCartAll = function(id) {
     for(var item in cart) {
-      if(cart[item].name === name) {
+      if(cart[item].id === id) {
         cart.splice(item, 1);
         break;
       }
@@ -90,8 +98,8 @@ var shoppingCart = (function() {
   // Count cart 
   obj.totalCount = function() {
     var totalCount = 0;
-    for(var item in cart) {
-      totalCount += cart[item].count;
+    for(var id in cart) {
+      totalCount += cart[id].count;
     }
     return totalCount;
   }
@@ -102,7 +110,7 @@ var shoppingCart = (function() {
     for(var item in cart) {
       totalCart += cart[item].price * cart[item].count;
     }
-    return Number(totalCart.toFixed(2));
+    return Number(totalCart);
   }
 
   // List cart
@@ -115,7 +123,7 @@ var shoppingCart = (function() {
         itemCopy[p] = item[p];
 
       }
-      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      itemCopy.total = Number(item.price * item.count);
       cartCopy.push(itemCopy)
     }
     return cartCopy;
@@ -142,9 +150,11 @@ var shoppingCart = (function() {
 // Add item
 $('.add-to-cart').click(function(event) {
   event.preventDefault();
+  var id = $(this).data('id');
   var name = $(this).data('name');
+  var img = $(this).data('img');
   var price = Number($(this).data('price'));
-  shoppingCart.addItemToCart(name, price, 1);
+  shoppingCart.addItemToCart(id,name,img,price, 1);
   displayCart();
 });
 
@@ -160,19 +170,22 @@ function displayCart() {
   var output = "";
   for(var i in cartArray) {
     output += "<tr>"
-      + "<td>" + cartArray[i].name + "</td>" 
-      + "<td>(" + cartArray[i].price + ")</td>"
+
+
+      + "<td> <img class='card-img-top img-fluid px-1 m-0  rounded-3 ' src='img/product_img/"+ cartArray[i].img +"'   onerror=this.src='../source/not_found.jpg'          > </td>" 
+      + "<td>" + cartArray[i].name + " <br/>   "+ cartArray[i].price + "  </td>" 
+
       + "<td width=50% >"
 
-      + "<div class='input-group'><button class='minus-item input-group-addon btn btn-sm btn-light' data-name=" + cartArray[i].name + ">-</button>"
-      + "<input type='number' class='text-end item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-      + "<button class='plus-item btn btn-sm btn-light input-group-addon' data-name=" + cartArray[i].name + ">+</button></div>"
+      + "<div class='input-group'><button class='minus-item input-group-addon btn btn-sm btn-light' data-id="+cartArray[i].id+" data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='text-end item-count form-control' data-id="+cartArray[i].id+" data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-sm btn-light input-group-addon' data-id="+cartArray[i].id+" data-name=" + cartArray[i].name + ">+</button></div>"
 
       + "</td>"
       + "<td></td>"
       + " = " 
       + "<td class='text-end '>" + cartArray[i].total + "</td>" 
-      + "<td width='1%'>  <button type='button' class='delete-item btn  btn-sm' data-name=" + cartArray[i].name + " > <i class='bi bi-x-circle text-danger '></i>  </button>   </td>"
+      + "<td width='1%'>  <button type='button' class='delete-item btn  btn-sm' data-id="+cartArray[i].id+" data-name=" + cartArray[i].name + " > <i class='bi bi-x-circle text-danger '></i>  </button>   </td>"
 
        
       +  "</tr>";
@@ -188,30 +201,30 @@ function displayCart() {
 // Delete item button
 
 $('.show-cart').on("click", ".delete-item", function(event) {
-  var name = $(this).data('name')
-  shoppingCart.removeItemFromCartAll(name);
+  var id = $(this).data('id')
+  shoppingCart.removeItemFromCartAll(id);
   displayCart();
 })
 
 
 // -1
 $('.show-cart').on("click", ".minus-item", function(event) {
-  var name = $(this).data('name')
-  shoppingCart.removeItemFromCart(name);
+  var id = $(this).data('id')
+  shoppingCart.removeItemFromCart(id);
   displayCart();
 })
 // +1
 $('.show-cart').on("click", ".plus-item", function(event) {
-  var name = $(this).data('name')
-  shoppingCart.addItemToCart(name);
+  var id = $(this).data('id')
+  shoppingCart.addItemToCart(id);
   displayCart();
 })
 
 // Item count input
 $('.show-cart').on("change", ".item-count", function(event) {
-   var name = $(this).data('name');
+   var id = $(this).data('id');
    var count = Number($(this).val());
-  shoppingCart.setCountForItem(name, count);
+  shoppingCart.setCountForItem(id, count);
   displayCart();
 });
 
