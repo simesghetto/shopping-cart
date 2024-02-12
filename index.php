@@ -35,7 +35,9 @@
 
       <div class="col-md-2">
         <div class=" p-2 bg-body-tertiary border rounded-3">
+
                <?php include('site-menu.php');?>
+               
         </div>
       </div>
 
