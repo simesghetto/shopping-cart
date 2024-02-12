@@ -43,8 +43,8 @@
                               </table>
                       </div>
                       <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-sm btn-danger">Save changes</button>
+                        <button type="button" class="btn btn-sm " data-bs-dismiss="modal">เลือกสินค้าต่อ</button>
+                        <button type="button" class="btn btn-sm btn-danger">ยืนยันการสั่งซื้อ</button>
                       </div>
                     </div>
                   </div>
