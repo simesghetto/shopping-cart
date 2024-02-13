@@ -52,7 +52,7 @@
 
 
     <footer class="pt-3 mt-4 text-body-secondary border-top">
-      &copy; 2023    <a class="link-secondary" href="backend/">   admin backend </a>
+      &copy; 2023    <a class="link-secondary" href="backend/index.php?admin_page=homepage">   admin backend </a>
     </footer>
 
 

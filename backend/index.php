@@ -36,7 +36,7 @@
   <header class="border-bottom lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#"> Administrator</a>
+        <a class="link-secondary" href="../index.php?admin_page=homepage"> Front-End</a>
       </div>
 
       <div class="col-4 text-center">
@@ -108,31 +108,39 @@
 
               if($_GET["admin_page"] == ""){
 
-                  //include('front-homepage/homepage-java.php');
+                  include('page-home/page-homepage.php');
 
                 }else if($_GET["admin_page"] == "homepage"){
 
-                  include('page-homepage.php');
+                  include('page-home/page-homepage.php');
+
+                }else if($_GET["admin_page"] == "category"){
+
+                  include('page-category/page-category.php');
 
                 }else if($_GET["admin_page"] == "product"){
 
-                  include('page-product.php');
+                  include('page-product/page-product.php');
+
+                }else if($_GET["admin_page"] == "stock"){
+
+                  include('page-stock/page-stock.php');
 
                 }else if($_GET["admin_page"] == "transport"){
 
-                  include('page-transport.php');
+                  include('page-transport/page-transport.php');
 
                 }else if($_GET["admin_page"] == "order"){
 
-                  include('page-order.php');
+                  include('page-order/page-order.php');
 
                 }else if($_GET["admin_page"] == "setting"){
 
-                  include('page-setting.php');
+                  include('page-setting/page-setting.php');
 
                 }else{
 
-                  //include('homepage.php');
+                  include('page-home/page-homepage.php');
 
                 }
 

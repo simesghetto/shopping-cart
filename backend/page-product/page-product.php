@@ -1,6 +1,6 @@
 
 
-
+    <?php include('modal-add-product.php');?>
 
 
 
@@ -9,10 +9,21 @@
 
 
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-sm btn-outline-danger">เพิ่มสินค้า</button>
-<!--           <button type="button" class="btn btn-sm btn-outline-secondary">Middle</button>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            เพิ่มสินค้า
+          </button>
+
+<!--      <button type="button" class="btn btn-sm btn-outline-secondary">Middle</button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Right</button> -->
+
         </div>
+
+
+
+
+
 
       </div>
 
@@ -65,15 +76,26 @@
 	              <td><?php //echo $product_array[$key]["prd_img"]; ?></td>
 	              <td width="1%" class="text-end">
 
-	              	<div class="btn-group" role="group" aria-label="Basic outlined example">   
-					  <button type="button" class="btn btn-sm btn-outline-secondary">  
-					  	<i class="text-black-50 small"   width="16"  height="16" data-feather="eye"></i>  
-					  </button>
-					  <button type="button" class="btn btn-sm btn-outline-secondary">
-					  	<i class="text-black-50 small"   width="16"  height="16" data-feather="settings"></i>  
-					  </button>
-					  
-					</div>
+  	              	<div class="btn-group" role="group" aria-label="Basic outlined example">   
+
+
+                      <button type="button" class="btn btn-sm btn-outline-secondary">  
+                        <i class="text-black-50 small"   width="16"  height="16" data-feather="image"></i>  
+                      </button>
+
+          					  <button type="button" class="btn btn-sm btn-outline-secondary">  
+          					  	<i class="text-black-50 small"   width="16"  height="16" data-feather="eye"></i>  
+          					  </button>
+
+
+          					  <button type="button" class="btn btn-sm btn-outline-secondary">
+          					  	<i class="text-black-50 small"   width="16"  height="16" data-feather="settings"></i>  
+          					  </button>
+
+
+
+  					  
+  					         </div>
 
 	              </td>
 	            </tr>
